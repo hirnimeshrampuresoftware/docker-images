@@ -42,6 +42,9 @@ jobs:
             changes_path_filter: vowpal_wabbit/vw-rel-alpine.Dockerfile
     steps:
       - uses: actions/checkout@master
+      - name: Set up QEMU
+        if: ${{ matrix.config.image_name == 'manylinux2014_aarch64-build' }}
+        uses: docker/setup-qemu-action@v1            
       - id: changes
         uses: dorny/paths-filter@v2
         with:
