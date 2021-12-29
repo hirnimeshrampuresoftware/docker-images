@@ -9,6 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         config:
         - { image_name: ubuntu1804-build, dockerfile: vowpal_wabbit/ubuntu1804-build.Dockerfile, context: ./ }
